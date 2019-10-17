@@ -1,0 +1,21 @@
+welcome:
+  name: welcome
+  description: Welcome to my blog.
+  cover: assets/images/welcome.jpg
+
+python:
+name: python
+description: python自学随笔.
+cover: assets/images/welcome.jpg
+# fiction:
+#   name: fiction
+#   description: False
+#   cover: False
+# fables:
+#   name: fables
+#   description: A series of short stories that make you think.
+#   cover: assets/images/fables.jpg
+getting-started:
+  name: getting-started
+  description: False
+  cover: False
