@@ -4,9 +4,15 @@ welcome:
   cover: assets/images/welcome.jpg
 
 python:
-name: python
-description: python自学随笔.
-cover: assets/images/welcome.jpg
+  name: python
+  description: python自学随笔.
+  cover: assets/images/welcome.jpg
+
+es:
+  name: es
+  description: elasticsearch全文检索.
+  cover: assets/images/waves.jpg
+
 # fiction:
 #   name: fiction
 #   description: False
@@ -15,6 +21,7 @@ cover: assets/images/welcome.jpg
 #   name: fables
 #   description: A series of short stories that make you think.
 #   cover: assets/images/fables.jpg
+
 getting-started:
   name: getting-started
   description: False
