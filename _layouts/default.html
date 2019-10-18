@@ -17,7 +17,22 @@
     <link rel="stylesheet" type="text/css" href="/assets/built/syntax.css" />
     <!-- highlight.js -->
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css">
-    <style>.hljs { background: none; }</style>
+    <script
+    src="https://code.jquery.com/jquery-3.2.1.min.js"
+    integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+    crossorigin="anonymous">
+    </script>
+    <style>
+        .hljs { background: none; }
+        
+        .diy-bg {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            z-index: 100;
+	    }
+        </style>
 
     <!--[if IE]>
         <style>
@@ -36,11 +51,19 @@
 </head>
 <body class="{% if paginator.page > 1 %}paged archive-template{% elsif page.class %}{{ page.class }}{% else %}home-template{% endif %}">
 
+    <!-- 星空特效~开始-->
+    <div id="particles-js" class="diy-bg">
+        <canvas class="particles-js-canvas-el" width="980" height="1742" style="width: 100%; height: 100%;"></canvas>
+    </div>
+    <!-- 星空特效~结束-->
+    <!-- 2d小人特效~开始-->
     <div id="landlord">
         <div class="message" style="opacity:0"></div>
         <canvas id="live2d" width="280" height="250" class="live2d"></canvas>
         <div class="hide-button">隐藏</div>
     </div>
+    <!-- 2d小人特效~结束-->
+
     <div class="site-wrapper">
         <!-- All the main content gets inserted here, index.hbs, post.hbs, etc -->
         {{ content }}
@@ -94,11 +117,6 @@
     {% endif %} -->
 
     <!-- highlight.js -->
-    <script
-    src="https://code.jquery.com/jquery-3.2.1.min.js"
-    integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
-    crossorigin="anonymous">
-    </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.10.0/components/prism-abap.min.js"></script>
     <script>$(document).ready(function() {
       $('pre code').each(function(i, block) {
@@ -110,8 +128,7 @@
 
     <script type="text/javascript" src="{{ site.baseurl }}assets/js/jquery.fitvids.js"></script>
     <script type="text/javascript" src="https://demo.ghost.io/assets/js/jquery.fitvids.js?v=724281a32e"></script>
-
-
+    <script type="text/javascript" src="/assets/js/particles.min.js"></script>
     <!-- Paginator increased to "infinit" in _config.yml -->
     <!-- if paginator.posts  -->
     <!-- <script>
@@ -144,7 +161,6 @@
     <script type="text/javascript">
         var message_Path = '/live2d/'
         var home_Path = 'https://lishufu.github.io/'  //此处修改为你的域名，必须带斜杠
-        var home_Path = '/'
     </script>
     <script type="text/javascript" src="/live2d/js/live2d.js"></script>
     <script type="text/javascript" src="/live2d/js/message.js"></script>
@@ -152,5 +168,123 @@
         loadlive2d("live2d", "/live2d/model/tia/model.json");
     </script>
 
+    <script>
+    particlesJS("particles-js", {
+        particles: {
+            number: {
+                value: 120,
+                density: {
+                    enable: true,
+                    value_area: 800
+                }
+            },
+            color: {
+                value: "#ffffff"
+            },
+            shape: {
+                type: "circle",
+                stroke: {
+                    width: 0,
+                    color: "#000000"
+                },
+                polygon: {
+                    nb_sides: 5
+                },
+                image: {
+                    src: "img/github.svg",
+                    width: 100,
+                    height: 100
+                }
+            },
+            opacity: {
+                value: .5,
+                random: false,
+                anim: {
+                    enable: false,
+                    speed: 1,
+                    opacity_min: .1,
+                    sync: false
+                }
+            },
+            size: {
+                value: 1,
+                random: true,
+                anim: {
+                    enable: false,
+                    speed: 20,
+                    size_min: .1,
+                    sync: false
+                }
+            },
+            line_linked: {
+                enable: true,
+                distance: 40,
+                color: "#fff",
+                opacity: 1,
+                width: 1
+            },
+            move: {
+                enable: true,
+                speed: 3,
+                direction: "none",
+                random: false,
+                straight: false,
+                out_mode: "out",
+                attract: {
+                    enable: false,
+                    rotateX: 600,
+                    rotateY: 1200
+                }
+            }
+        },
+        interactivity: {
+            detect_on: "canvas",
+            events: {
+                onhover: {
+                    enable: true,
+                    mode: "grab"
+                },
+                onclick: {
+                    enable: true,
+                    mode: "push"
+                },
+                resize: true
+            },
+            modes: {
+                grab: {
+                    distance: 120,
+                    line_linked: {
+                        opacity: 1
+                    }
+                },
+                bubble: {
+                    distance: 400,
+                    size: 40,
+                    duration: 2,
+                    opacity: 8,
+                    speed: 3
+                },
+                repulse: {
+                    distance: 300
+                },
+                push: {
+                    particles_nb: 4
+                },
+                remove: {
+                    particles_nb: 2
+                }
+            }
+        },
+        retina_detect: true,
+        config_demo: {
+            hide_card: false,
+            background_color: "#b61924",
+            background_image: "",
+            background_position: "50% 50%",
+            background_repeat: "no-repeat",
+            background_size: "cover"
+        }
+    });
+    </script>
 </body>
 </html>

@@ -39,45 +39,45 @@ $(function ($) {
         if (isLoading) {
             return;
         }
-
+    
         // return if not scroll to the bottom
         if (lastScrollY + lastWindowHeight <= lastDocumentHeight - buffer) {
             ticking = false;
             return;
         }
-
+    
         // return if currentPage is the last page already
         if (currentPage === maxPages) {
             return;
         }
-
+    
         isLoading = true;
-
+    
         // next page
         currentPage++;
-
+    
         // Load more
         var nextPage = pathname + 'page' + currentPage + '/';
-
+    
         $.get(nextPage, function (content) {
             $result.append($(content).find('.post').hide().fadeIn(100));
-
+    
         }).fail(function (xhr) {
             // 404 indicates we've run out of pages
             if (xhr.status === 404) {
                 window.removeEventListener('scroll', onScroll, {passive: true});
                 window.removeEventListener('resize', onResize);
             }
-
+    
         }).always(function () {
             lastDocumentHeight = $document.height();
             isLoading = false;
             ticking = false;
         });
     }
-
+    
     window.addEventListener('scroll', onScroll, {passive: true});
     window.addEventListener('resize', onResize);
-
+    
     infiniteScroll();
 });
