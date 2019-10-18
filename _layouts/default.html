@@ -36,6 +36,11 @@
 </head>
 <body class="{% if paginator.page > 1 %}paged archive-template{% elsif page.class %}{{ page.class }}{% else %}home-template{% endif %}">
 
+    <div id="landlord">
+        <div class="message" style="opacity:0"></div>
+        <canvas id="live2d" width="280" height="250" class="live2d"></canvas>
+        <div class="hide-button">隐藏</div>
+    </div>
     <div class="site-wrapper">
         <!-- All the main content gets inserted here, index.hbs, post.hbs, etc -->
         {{ content }}
@@ -89,6 +94,11 @@
     {% endif %} -->
 
     <!-- highlight.js -->
+    <script
+    src="https://code.jquery.com/jquery-3.2.1.min.js"
+    integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+    crossorigin="anonymous">
+    </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.10.0/components/prism-abap.min.js"></script>
     <script>$(document).ready(function() {
       $('pre code').each(function(i, block) {
@@ -97,11 +107,7 @@
     });</script>
 
     <!-- jQuery + Fitvids, which makes all video embeds responsive -->
-    <script
-        src="https://code.jquery.com/jquery-3.2.1.min.js"
-        integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
-        crossorigin="anonymous">
-    </script>
+
     <script type="text/javascript" src="{{ site.baseurl }}assets/js/jquery.fitvids.js"></script>
     <script type="text/javascript" src="https://demo.ghost.io/assets/js/jquery.fitvids.js?v=724281a32e"></script>
 
@@ -134,6 +140,17 @@
 
     <!-- Ghost outputs important scripts and data with this tag - it should always be the very last thing before the closing body tag -->
     <!-- ghost_foot -->
+
+    <script type="text/javascript">
+        var message_Path = '/live2d/'
+        var home_Path = 'https://lishufu.github.io/'  //此处修改为你的域名，必须带斜杠
+        var home_Path = '/'
+    </script>
+    <script type="text/javascript" src="/live2d/js/live2d.js"></script>
+    <script type="text/javascript" src="/live2d/js/message.js"></script>
+    <script type="text/javascript">
+        loadlive2d("live2d", "/live2d/model/tia/model.json");
+    </script>
 
 </body>
 </html>

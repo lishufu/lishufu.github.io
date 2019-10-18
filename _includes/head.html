@@ -1,6 +1,7 @@
 <meta name="description" content="{% if page.description %}{{ page.description }}{% else %}{{ site.description }}{% endif %}" />
     <link rel="shortcut icon" href="{{ site.url }}{{ site.baseurl }}{{ site.favicon }}" type="image/png" />
     <link rel="canonical" href="{{ site.url }}{% if site.baseurl %}{{ site.baseurl }}{% endif %}{{ page.url | remove_first: '/' }}" />
+    <link rel="stylesheet" href="/live2d/css/live2d.css" />
     <meta name="referrer" content="no-referrer-when-downgrade" />
 
     {% if page.content and page.current == 'post' or page.current == 'about' %}

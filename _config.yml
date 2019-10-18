@@ -11,9 +11,10 @@ baseurl: /
 
 # Website info
 title: 李书福的博客
-description: 欢迎来到我的个人博客
+description: 欢迎来到李书福的个人博客
 cover: assets/images/blog-cover.jpg
-logo: assets/images/blog-icon.png
+logo: assets/images/timg.jfif
+#logo: assets/images/blog-icon.png
 logo_dark: assets/images/favicon.png
 favicon: assets/images/favicon.png
 production_url: https://jekyller.github.io/jasper2/
